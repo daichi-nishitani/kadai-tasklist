@@ -19,7 +19,7 @@ class TasksController < ApplicationController
       redirect_to @task
     else 
       flash.now[:danger] = 'タスクが保存されませんでした'
-      rebder :new
+      render :new
     end
   end
 
@@ -51,6 +51,6 @@ class TasksController < ApplicationController
 
   # Strong Parameter
   def task_params
-    params.require(:task).permit(:content)
+    params.require(:task).permit(:content, :status)
   end
 end
